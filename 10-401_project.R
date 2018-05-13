@@ -208,7 +208,7 @@ baseline_predict_2 <- function(df, start, step, stop){
 birth_base_preds <- baseline_predict(birth, 248, 25, 373) # Mean absolute error is 18.864
 birth_base2_preds <- baseline_predict_2(birth, 248, 25, 373) # Mean absolute error is 16.03333
 birth_arima_preds <- going_forward(248, 25, 373, c(4, 1, 3), birth, is_log=TRUE)
-png(filename="birth_cv_base.png", units="in", width=8, height=6, pointsize=12, res=256)
+svg(filename="birth_cv_base.svg", width=8, height=6, pointsize=12)
 plot(birth, type="l", lwd=2, xlim=c(1948 + 100/12, 1979),
      main="US Monthly Births - Going Forward ARIMA(4, 1, 3)",
      xlab="Time", ylab="Births (thousands)"); grid()
@@ -226,7 +226,7 @@ dev.off()
 jj_base_preds <- baseline_predict(jj, 59, 5, 84) # Mean absolute error is 1.6164
 jj_base2_preds <- baseline_predict_2(jj, 59, 5, 84) # Mean absolute error is 2.0442
 jj_arima_preds <- going_forward(59, 5, 84, c(4, 1, 1), jj, is_log=TRUE)
-png(filename="jj_cv_base.png", units="in", width=8, height=6, pointsize=12, res=256)
+svg(filename="jj_cv_base.svg", width=8, height=6, pointsize=12)
 plot(jj, type="l", lwd=2, ylab="Earnings/Share",
      main="J&J Earnings/Share - Going Forward ARIMA(4,1,1)")
 grid()
